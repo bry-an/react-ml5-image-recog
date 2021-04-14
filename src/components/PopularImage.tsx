@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState, createRef, useRef} from "react"
 import {getPopularImages} from "../api/getImage"
+import ImageRecognition from "./ImageRecognition"
 interface IItem {
     href: string,
 }
@@ -10,6 +11,7 @@ interface Response {
 
 const RandomImage = () => {
     const [images, setImages] = useState<Array<string>>([''])
+    const firstImageRef = useRef<HTMLImageElement>(null)
     const getImageId = (url: string) : string => {
         const parts = url.split('/')
         return parts[parts.length - 2]
@@ -24,6 +26,8 @@ const RandomImage = () => {
     }, [])
     return (
         <>
+        <img src={images[0]} alt="first" ref={firstImageRef}/>
+        <ImageRecognition imageRef={firstImageRef.current} />
         <div>{images.map((image) => (
             <img src={image} alt="popular" key={image} className="w-1/2 my-2"/>
         ))}</div>

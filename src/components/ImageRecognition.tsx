@@ -2,10 +2,10 @@ import React, { FunctionComponent } from "react"
 import {imageClassifier} from "ml5"
 
 interface IProps {
-    image: HTMLElement,
+    imageRef: HTMLImageElement | null,
 }
 const ImageRecognition: FunctionComponent<IProps> = (props) => {
-    const image = {props}
+    const imageRef = {props}
   const classifier = imageClassifier('MobileNet', modelLoaded);
 
 // When the model is loaded
@@ -14,9 +14,11 @@ function modelLoaded() {
 }
 
 // Make a prediction with a selected image
-classifier.classify(image, (err: Error, results: []) => {
+classifier.classify(imageRef, (err: Error, results: []) => {
   console.log(results);
 });
-return <div></div>
+return (
+    <div></div>
+)
 }
 export default ImageRecognition
