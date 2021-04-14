@@ -1,5 +1,5 @@
 import React from 'react';
-import RandomImage from "./components/randomImage"
+import RandomImage from "./components/PopularImage"
 
 function App() {
   return (

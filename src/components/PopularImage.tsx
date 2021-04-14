@@ -25,7 +25,7 @@ const RandomImage = () => {
     return (
         <>
         <div>{images.map((image) => (
-            <img src={image} alt="popular" key={image} className="block my-2"/>
+            <img src={image} alt="popular" key={image} className="w-1/2 my-2"/>
         ))}</div>
         </>
     )
