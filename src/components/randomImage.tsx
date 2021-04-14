@@ -23,9 +23,11 @@ const RandomImage = () => {
         .then((json) => setImages(getImageLinks(json.collection.items)))
     }, [])
     return (
+        <>
         <div>{images.map((image) => (
-            <img src={image} alt="popular" key={image}/>
+            <img src={image} alt="popular" key={image} className="block my-2"/>
         ))}</div>
+        </>
     )
 }
 export default RandomImage
